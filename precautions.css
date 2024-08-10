@@ -1,0 +1,112 @@
+/* Slider container styles */
+.slider-container {
+    position: relative;
+    width: auto; /* adjust the width as needed */
+    margin: 40px auto;
+  }
+  
+  /* Slider wrapper styles */
+  .slider-wrapper {
+    
+    display: flex;
+    flex-wrap: nowrap;
+    
+    transition: transform 0.5s ease-in-out; /* add transition effect */
+  }
+  
+  /* Slider item styles */
+  .slider-item {
+    
+    flex: 0 0 auto; /* adjust the width as needed */
+    margin: 10px;
+    width: 40vw;
+    height: 50vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ddd;
+  transition: transform 0.5s ease-in-out;
+  }
+  
+  /* Prev/Next button styles */
+  .prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+  
+  /* Pagination dot styles */
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .dot.active {
+    background-color: #666;
+    color: #fff;
+  }
+  .content{
+    padding: 30px;
+  margin: 20px 0;
+  /* Add a background color to distinguish each section */
+  background-color: #f7f7f7;
+  /* Add some border radius to give it a nice look */
+  border-radius: 10px;
+  /* Add a box shadow to give it some depth */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+   
+  }
+  @media (max-width: 768px) {
+    .section {
+      padding: 10px;
+      margin: 10px 0;
+    }
+  }
+  .parallax {
+    /* The image used */
+    background-image: url("bgparallax.jpeg");
+  
+    /* Set a specific height */
+    min-height: 500px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .name{
+    font-size: 30px;
+  }
+  p{
+    font-size: 20px;
+  }
+  ul{
+    font-size: 20px;
+  }
