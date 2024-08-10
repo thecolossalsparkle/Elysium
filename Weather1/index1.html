@@ -3,59 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style (1).css">
-    <title>Elsyum</title>
-</head> 
-
-
-
+    <title>Dynamic Weather App</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
 <body>
-   
-    <div class = "container">
+    <div class="container">
+        <header>
+            <h1>Weather App</h1>
+        </header>
         <div class="search-box">
-            <i><box-icon type='solid' name='map'></box-icon></i>
-            <input type="text" placeholder = "Enter your location">
-            <button class = "bx bx-search"></button>
-        </div>
-        <div class="weather-box">
-            <div class="box">
-                <div class="info-weather">
-                    <div class="weather">
-                        <img src = "suncloud.jpg">
-                        <p class = "temperature">16<span>C</span></p>
-                        <div class="description">Broken Clouds</div>
+            <input type="text" placeholder="Enter city name" id="search-input">
+            <button id="search-button">Search</button>
+            <button id="current-location-button">Use Current Location</button>
+        </div>    
+        <div class="weather-info">
+            <div class="location">
+                <div class="city" id="city"></div>
+                <div class="country" id="country"></div>
+            </div>
+            <div class="weather-condition">
+                <div class="temp" id="temp"></div>
+                <div class="icon" id="icon"></div>
+                <div class="description" id="description"></div>
+            </div>
+            <div class="details">
+                <div class="feels-like">
+                    <span>Feels Like:</span>
+                    <span id="feels-like"></span>
+                </div>
+                <div class="humidity">
+                    <span>Humidity:</span>
+                    <span id="humidity"></span>
+                </div>
+                <div class="wind">
+                    <span>Wind Speed:</span>
+                    <span id="wind"></span>
+                </div>
+                <div class="pressure">
+                    <span>Pressure:</span>
+                    <span id="pressure"></span>
+                </div>
+                <div class="visibility">
+                    <span>Visibility:</span>
+                    <span id="visibility"></span>
+                </div>
+                <div class="sunrise-sunset">
+                    <div>
+                        <span>Sunrise:</span>
+                        <span id="sunrise"></span>
+                    </div>
+                    <div>
+                        <span>Sunset:</span>
+                        <span id="sunset"></span>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="weather-details">
-            <div class="humidity">
-                <!-- <i><box-icon name='water' ></box-icon></i> -->
-                 <i class='bx bx-water'></i>
-                <div class="text">
-                    <div class="info-humidity">
-                        <span>0%</span>
-
-                    </div>
-                    <p>humidity</p>
-                </div>
+            <div class="forecast">
+                <div id="forecast-slider"></div>
             </div>
-            <div class="wind">
-                <box-icon name='wind'></box-icon>
-                <div class="text">
-                    <div class="info-wind">
-                        <span>0%</span>
-
-                    </div>
-                    <p>Wind Speed</p>
-                </div>
-            </div>
-
         </div>
     </div>
+    <script src="weather.js"></script>
 </body>
 </html>
