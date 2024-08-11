@@ -154,49 +154,336 @@
 
 
 <!-- weather -->
-<div class = "container">
+<div class="container">
+    <header>
+        <h1>Weather App</h1>
+    </header>
     <div class="search-box">
-        <i><box-icon type='solid' name='map'></box-icon></i>
-        <input type="text" placeholder = "Enter your location">
-        <button class = "bx bx-search"></button>
-    </div>
-    <div class="weather-box">
-        <div class="box">
-            <div class="info-weather">
-                <div class="weather">
-                    <img src = "suncloud.jpg">
-                    <p class = "temperature">16<span>C</span></p>
-                    <div class="description">Broken Clouds</div>
+        <input type="text" placeholder="Enter city name" id="search-input">
+        <button id="search-button">Search</button>
+        <button id="current-location-button">Use Current Location</button>
+    </div>    
+    <div class="weather-info">
+        <div class="location">
+            <div class="city" id="city"></div>
+            <div class="country" id="country"></div>
+        </div>
+        <div class="weather-condition">
+            <div class="temp" id="temp"></div>
+            <div class="icon" id="icon"></div>
+            <div class="description" id="description"></div>
+        </div>
+        <div class="details">
+            <div class="feels-like">
+                <span>Feels Like:</span>
+                <span id="feels-like"></span>
+            </div>
+            <div class="humidity">
+                <span>Humidity:</span>
+                <span id="humidity"></span>
+            </div>
+            <div class="wind">
+                <span>Wind Speed:</span>
+                <span id="wind"></span>
+            </div>
+            <div class="pressure">
+                <span>Pressure:</span>
+                <span id="pressure"></span>
+            </div>
+            <div class="visibility">
+                <span>Visibility:</span>
+                <span id="visibility"></span>
+            </div>
+            <div class="sunrise-sunset">
+                <div>
+                    <span>Sunrise:</span>
+                    <span id="sunrise"></span>
+                </div>
+                <div>
+                    <span>Sunset:</span>
+                    <span id="sunset"></span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="weather-details">
-        <div class="humidity">
-            <!-- <i><box-icon name='water' ></box-icon></i> -->
-             <i class='bx bx-water'></i>
-            <div class="text">
-                <div class="info-humidity">
-                    <span>0%</span>
-
-                </div>
-                <p>humidity</p>
-            </div>
+        <div class="forecast">
+            <div id="forecast-slider"></div>
         </div>
-        <div class="wind">
-            <box-icon name='wind'></box-icon>
-            <div class="text">
-                <div class="info-wind">
-                    <span>0%</span>
-
-                </div>
-                <p>Wind Speed</p>
-            </div>
-        </div>
-
     </div>
 </div>
 
+<style>
+    body {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        color: #fff;
+    }
+
+    .container {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        width: 90%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 50px;
+        background: url('https://example.com/weather-header-image.jpg') no-repeat center center/cover;
+        padding: 50px 0;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-size: 3em;
+        margin: 0;
+        color: #ffffff;
+    }
+
+    .search-box {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    #search-input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        flex-grow: 1;
+        margin-right: 10px;
+    }
+
+    #search-button,
+    #current-location-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #search-button {
+        background-color: #007bff;
+        color: #fff;
+        margin-right: 10px; 
+    }
+
+    #search-button:hover {
+        background-color: #0056b3;
+    }
+
+    #current-location-button {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    #current-location-button:hover {
+        background-color: #218838;
+    }
+
+    .weather-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .location {
+        margin-bottom: 20px;
+    }
+
+    .city {
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+    .country {
+        font-size: 1.5em;
+    }
+
+    .weather-condition {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .temp {
+        font-size: 4em;
+        font-weight: bold;
+        margin-right: 20px;
+    }
+
+    .icon img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .description {
+        font-size: 1.5em;
+    }
+
+    .details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .details div {
+        margin-bottom: 10px;
+    }
+
+    .details span {
+        margin-right: 5px;
+    }
+
+    .forecast {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    #forecast-slider {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .forecast-day {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        padding: 10px;
+        margin: 5px;
+        text-align: center;
+        min-width: 80px;
+    }
+
+    .forecast-date {
+        font-weight: bold;
+    }
+
+    .forecast-icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .forecast-temp {
+        font-size: 1.2em;
+    }
+
+    body.clear-sky {
+        background-image: url('clear_sky.jpg');
+    }
+
+    body.clouds {
+        background-image: url('cloudy.jpg');
+    }
+
+    body.rain {
+        background-image: url('rain.jpg');
+    }
+
+    body.snow {
+        background-image: url('snow.jpg');
+    }
+
+    body.thunderstorm {
+        background-image: url('thunderstorm.jpg');
+    }
+
+    body.default-weather {
+        background-image: url('default_weather.jpg');
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+    }
+
+    @keyframes popUp {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+</style>
+
+<script>
+    const apiKey = '98740f4ebc0d63bc0f8ba70090e5a091';
+    const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+
+    const cityElement = document.getElementById('city');
+    const countryElement = document.getElementById('country');
+    const tempElement = document.getElementById('temp');
+    const iconElement = document.getElementById('icon');
+    const descriptionElement = document.getElementById('description');
+    const feelsLikeElement = document.getElementById('feels-like');
+    const humidityElement = document.getElementById('humidity');
+    const windElement = document.getElementById('wind');
+    const pressureElement = document.getElementById('pressure');
+    const visibilityElement = document.getElementById('visibility');
+    const sunriseElement = document.getElementById('sunrise');
+    const sunsetElement = document.getElementById('sunset');
+
+    const searchButton = document.getElementById('search-button');
+    const currentLocationButton = document.getElementById('current-location-button');
+    const searchInput = document.getElementById('search-input');
+
+    async function getWeatherData(url) {
+        const response = await fetch(url);
+        const data = await response.json();
+        updateWeatherInfo(data);
+    }
+
+    function updateWeatherInfo(data) {
+        cityElement.textContent = data.name;
+        countryElement.textContent = data.sys.country;
+        tempElement.textContent = ${Math.round(data.main.temp - 273.15)}°C;
+        descriptionElement.textContent = data.weather[0].description;
+        feelsLikeElement.textContent = ${Math.round(data.main.feels_like - 273.15)}°C;
+        humidityElement.textContent = ${data.main.humidity}%;
+        windElement.textContent = ${data.wind.speed} m/s;
+        pressureElement.textContent = ${data.main.pressure} hPa;
+        visibilityElement.textContent = ${data.visibility / 1000} km;
+        sunriseElement.textContent = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+        sunsetElement.textContent = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+        iconElement.innerHTML = <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" alt="Weather icon">;
+
+        const weatherCondition = data.weather[0].main.toLowerCase();
+        document.body.className = weatherCondition;
+
+        if (!['clear-sky', 'clouds', 'rain', 'snow', 'thunderstorm'].includes(weatherCondition)) {
+            document.body.className = 'default-weather';
+        }
+    }
+
+    searchButton.addEventListener('click', () => {
+        const city = searchInput.value;
+        const url = ${weatherApiUrl}?q=${city}&appid=${apiKey};
+        getWeatherData(url);
+    });
+
+    currentLocationButton.addEventListener('click', () => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const url = ${weatherApiUrl}?lat=${lat}&lon=${lon}&appid=${apiKey};
+            getWeatherData(url);
+        });
+    });
+</script>
 
  <!-- Ananya's page html -->
 
