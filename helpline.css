@@ -95,6 +95,7 @@
 .redphone{
     width: 10%;
     height: 10%;
+    margin-top: 98px;
     
         perspective: 1000px;
         transform-style: preserve-3d;
