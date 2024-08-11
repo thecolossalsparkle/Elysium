@@ -13,6 +13,63 @@
     <link rel="stylesheet"  href="about.css">
     <!-- helpline thing -->
     <link rel="stylesheet" href="helpline.css">
+    <!-- donation button css -->
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f5f5f5;
+          color: #333;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          background-color: #2e7d32;
+          color: #ffffff;
+          text-align: center;
+          padding: 20px;
+          margin: 0;
+      }
+
+      p {
+          text-align: center;
+          font-size: 1.2em;
+          margin: 20px 0;
+      }
+
+      .donation-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 50px auto;
+          width: 80%;
+          max-width: 600px;
+          background-color: #ffffff;
+          border: 2px solid #4caf50;
+          border-radius: 8px;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          padding: 30px;
+      }
+
+      button {
+          background-color: #4caf50;
+          color: #ffffff;
+          font-size: 1.2em;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+          background-color: #388e3c;
+      }
+
+      button:focus {
+          outline: none;
+      }
+  </style>
     <!-- weather -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -393,41 +450,47 @@
             </div>
         </div>
     </footer>
+    <!-- donation -->
+    <div class="donation-container">
+      <p>Your donation can make a huge difference. Click the button below to donate.</p>
+      <form action="donate.html" method="get">
+          <button type="submit">Donate Now</button>
+      </form>
+    </div>
 
   <!-- buffer thing -->
- 
-    <section id="about" class="about-section">
-        <h2>About Us</h2>
-        <p>We are dedicated to raising awareness about weather disasters and providing resources to help you stay safe. Our mission is to educate and prepare individuals and communities for the challenges posed by extreme weather events.</p>
-    </section>
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>We are dedicated to raising awareness about weather disasters and providing resources to help you stay safe. Our mission is to educate and prepare individuals and communities for the challenges posed by extreme weather events.</p>
+</section>
 
-    <section id="disasters" class="disasters-section">
-        <h2>Types of Disasters</h2>
-        <div class="disaster-cards">
-            <div class="disaster-card">
-                <h3>Hurricanes</h3>
-                <p>Learn how to prepare for hurricanes and what to do during and after the storm.</p>
-            </div>
-            <div class="disaster-card">
-                <h3>Tornadoes</h3>
-                <p>Understand the warning signs of tornadoes and how to stay safe in the event of one.</p>
-            </div>
-            <div class="disaster-card">
-                <h3>Floods</h3>
-                <p>Get informed about flood risks and how to protect your home and family.</p>
-            </div>
+<section id="disasters" class="disasters-section">
+    <h2>Types of Disasters</h2>
+    <div class="disaster-cards">
+        <div class="disaster-card">
+            <h3>Hurricanes</h3>
+            <p>Learn how to prepare for hurricanes and what to do during and after the storm.</p>
         </div>
-    </section>
+        <div class="disaster-card">
+            <h3>Tornadoes</h3>
+            <p>Understand the warning signs of tornadoes and how to stay safe in the event of one.</p>
+        </div>
+        <div class="disaster-card">
+            <h3>Floods</h3>
+            <p>Get informed about flood risks and how to protect your home and family.</p>
+        </div>
+    </div>
+</section>
 
-    <section id="resources" class="resources-section">
-        <h2>Resources</h2>
-        <p>Explore our collection of guides, checklists, and tools to help you prepare for any weather disaster.</p>
-        <a href="#download" class="cta-button">Download Resources</a>
-    </section>
+<section id="resources" class="resources-section">
+    <h2>Resources</h2>
+    <p>Explore our collection of guides, checklists, and tools to help you prepare for any weather disaster.</p>
+    <a href="#download" class="cta-button">Download Resources</a>
+</section>
 
-    <footer>
-        <p>&copy; 2024 Weather Disaster Awareness. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; 2024 Weather Disaster Awareness. All rights reserved.</p>
+</footer>
 </body>
 
 </html>
